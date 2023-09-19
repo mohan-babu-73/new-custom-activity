@@ -403,21 +403,20 @@
             
         });
 
-      var oldschema='{"schema":[{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.ID","name":"ID","type":"Text","length":50,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.firstname","name":"firstname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.lastname","name":"lastname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.position","name":"position","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.title","name":"title","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.business","name":"business","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.employee","name":"employee","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null}]}';
-var newSchema = JSON.parse(oldschema);
+//       var oldschema='{"schema":[{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.ID","name":"ID","type":"Text","length":50,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.firstname","name":"firstname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.lastname","name":"lastname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.position","name":"position","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.title","name":"title","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.business","name":"business","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.employee","name":"employee","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null}]}';
+// var newSchema = JSON.parse(oldschema);
 
-var getattributes = [];
-        for(i=0;i<(newSchema.schema.length);i++){
-            getattributes.push(newSchema.schema[i].name);
-           // console.log(newSchema.schema[i]);
-        }
-        $(".attribute-select").html('');
-        // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
-        for(i=0;i<getattributes.length;i++){
-         
-          $(".attribute-select").append('<option value="'+getattributes[i]+'">'+getattributes[i]+'</option>');
-        }
-        console.log("attr",getattributes);
+// var getattributes = [];
+//         for(i=0;i<(newSchema.schema.length);i++){
+//             getattributes.push(newSchema.schema[i].name);
+        
+//         }
+//         $(".attribute-select").html('');
+//         // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
+//         for(i=0;i<getattributes.length;i++){
+//           $(".attribute-select").append('<option value="'+getattributes[i]+'">'+getattributes[i]+'</option>');
+//         }
+       
        
   </script>
 
