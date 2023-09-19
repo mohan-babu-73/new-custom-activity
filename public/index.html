@@ -247,6 +247,7 @@
       });
       $(document).on('click', '.dynamicgroup', function(event) {
         var getlength=$(this).attr('data-length');
+        console.log("length check",getlength);
         if($(this).attr('data-tab') != undefined){
           $(".dynamic-tabs1").css('display','none');
           $("#"+$(this).attr('data-tab')).css('display','block');
