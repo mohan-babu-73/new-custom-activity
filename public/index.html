@@ -246,6 +246,7 @@
        // $('.select').timezones();
       });
       $(document).on('click', '.dynamicgroup', function(event) {
+        alert("Working here");
         if($(this).attr('data-tab') != undefined){
           $(".dynamic-tabs1").css('display','none');
           $("#"+$(this).attr('data-tab')).css('display','block');
