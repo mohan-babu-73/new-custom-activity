@@ -8,7 +8,7 @@
     "type": "REST",
     "lang": {
         "en-US": {
-           "name": "Prathap Demo",
+           "name": "dynamic activity Demo",
           "description": "A custom Journey Builder activity",
           "step1Label": "Configure Activity"
         }
@@ -18,7 +18,7 @@
         "inArguments": [
         ],
         "outArguments": [],
-        "url": "https://custom-dynamic-wait.vercel.app/journeybuilder/execute/",
+        "url": "https://new-custom-activity.vercel.app/journeybuilder/execute/",
         "verb": "POST",
         "body": "",
         "header": "",
@@ -31,17 +31,17 @@
     "validate": {
         "verb": "POST",
         "format": "json",
-        "url": "https://custom-dynamic-wait.vercel.app/journeybuilder/validate/"
+        "url": "https://new-custom-activity.vercel.app/journeybuilder/validate/"
     },
     "publish": {
         "verb": "POST",
         "format": "json",
-        "url": "https://custom-dynamic-wait.vercel.app/journeybuilder/publish/"
+        "url": "https://new-custom-activity.vercel.app/journeybuilder/publish/"
     },
     "Save": {
       "verb": "POST",
       "format": "json",
-      "url": "https://custom-dynamic-wait.vercel.app/journeybuilder/save/"
+      "url": "https://new-custom-activity.vercel.app/journeybuilder/save/"
   }
   },
     "wizardSteps": [
