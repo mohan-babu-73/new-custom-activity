@@ -11,6 +11,7 @@ define([
     var payload = {};
     var lastStepEnabled = false;
     var steps = [{ "label": "Configure Postcard", "key": "step1" }];
+    var schemadata ={};
 
     var currentStep = steps[0].key;
 
@@ -47,6 +48,7 @@ define([
     function handelSchema(schema) {
         console.log("####Schema without strignify#####",schema);
         console.log('*** Schema ***', JSON.stringify(schema))
+        schemadata =schema;
        // var getattributes = [];
         $(".attribute-select").html('');
         $(".attibute-date").html('');
@@ -142,7 +144,11 @@ define([
         connection.trigger('updateActivity', payload);
     }
 
+    $(document).on('click', '#addGroup', function(event) { 
 
+        console.log("Work inside");
+        console.log("Schema data",schemadata);
+    });
 
     $('#btn-preview').click(function () {
         $('#postcard-preview-text').html($('#postcard-text').val());
