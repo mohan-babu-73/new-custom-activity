@@ -142,10 +142,7 @@ define([
         connection.trigger('updateActivity', payload);
     }
 
-    $(document).on('click', '#addGroup', function(event) { 
 
-        connection.on('requestedSchema', handelSchema); 
-    });
 
     $('#btn-preview').click(function () {
         $('#postcard-preview-text').html($('#postcard-text').val());
