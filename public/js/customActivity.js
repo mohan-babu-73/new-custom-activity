@@ -59,11 +59,7 @@ define([
                 $(".attibute-date").append('<option value="'+schema.schema[i].name+'">'+schema.schema[i].name+'</option>');
             }
         }
-       
-        // for(var j=0;j<getattributes.length;j++){
-         
 
-        // }
     }
 
 
@@ -148,6 +144,14 @@ define([
 
         console.log("Work inside");
         console.log("Schema data",schemadata);
+        $(".attribute-select").html('');
+        $(".attibute-date").html('');
+        for(var i=0;i<schemadata.schema.length;i++){
+            $(".attribute-select").append('<option value="'+schemadata.schema[i].name+'">'+schemadata.schema[i].name+'</option>');
+            if(schemadata.schema[i].type=='Date'){
+                $(".attibute-date").append('<option value="'+schemadata.schema[i].name+'">'+schemadata.schema[i].name+'</option>');
+            }
+        }
     });
 
     $('#btn-preview').click(function () {
