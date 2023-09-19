@@ -48,7 +48,11 @@ define([
         console.log("####Schema without strignify#####",schema);
         console.log('*** Schema ***', JSON.stringify(schema))
         $("#schema_info").text(JSON.stringify(schema));
-        // $("#attribute_name").text(schema.schema.)
+        var getattributes = '';
+        for(i=0;i<=schema.length;i++){
+            getattributes += schema.schema[i].name+',';
+        }
+        $("#attribute_name").text(getattributes);
     }
 
 
