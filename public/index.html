@@ -250,7 +250,7 @@
         console.log("length check",getlength);
         if($(this).attr('data-tab') != undefined){
           $(".dynamic-tabs1").css('display','none');
-         // $("#"+$(this).attr('data-tab')).css('display','block');
+          $("#"+$(this).attr('data-tab')).css('display','block');
         //   $('.select').timezones();
         }
         $(".dynamic-tabs1").css('display','none');
@@ -268,7 +268,7 @@
        
         var addGroup = ' <button class="nav-link dynamicgroup" id="v-pills-dynamic'+grouplength+'-tab" data-tab="v-pills-dynamic'+grouplength+'" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic'+grouplength+'" type="button" role="tab" aria-controls="v-pills-dynamic'+grouplength+'" data-length="'+grouplength+'" aria-selected="false">Dynamic Group'+grouplength+'</button>';
 
-        var addnewTab='       <div role="tabpanel" id="v-pills-dynamic'+grouplength+'" aria-labelledby="v-pills-dynamic'+grouplength+'-tab" class="fade tab-pane dynamic-tabs"> <form class="">'+
+        var addnewTab='       <div role="tabpanel" id="v-pills-dynamic'+grouplength+'" aria-labelledby="v-pills-dynamic'+grouplength+'-tab" class="fade tab-pane dynamic-tabs1"> <form class="">'+
                        ' <div class="container">'+
                         '  <div class="row">'+
                             '<div class="col-lg-12 col-md col">'+
@@ -389,7 +389,7 @@
                       '</form></div>';
 
        // $('.select').timezones();
-        $(".dynamic-tabs").css('display','none');
+        $(".dynamic-tabs1").css('display','none');
         $("#v-pills-dynamic1-tab").parent().append(addGroup);
         $("#v-pills-tabContent").parent().append(addnewTab);
         $('#v-pills-dynamic'+grouplength).addClass('active');
