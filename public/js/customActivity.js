@@ -47,15 +47,21 @@ define([
     function handelSchema(schema) {
         console.log("####Schema without strignify#####",schema);
         console.log('*** Schema ***', JSON.stringify(schema))
-        var getattributes = [];
-        for(var i=0;i<schema.schema.length;i++){
-            getattributes.push(schema.schema[i].name);
-        }
+       // var getattributes = [];
         $(".attribute-select").html('');
-        // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
-        for(var j=0;j<getattributes.length;j++){
-          $(".attribute-select").append('<option value="'+getattributes[j]+'">'+getattributes[j]+'</option>');
+        $(".attibute-date").html('');
+        for(var i=0;i<schema.schema.length;i++){
+          //  getattributes.push(schema.schema[i].name);
+            $(".attribute-select").append('<option value="'+schema.schema[i].name+'">'+schema.schema[i].name+'</option>');
+            if(schema.schema[i].type=='Date'){
+                $(".attibute-date").append('<option value="'+schema.schema[i].name+'">'+schema.schema[i].name+'</option>');
+            }
         }
+       
+        // for(var j=0;j<getattributes.length;j++){
+         
+
+        // }
     }
 
 
