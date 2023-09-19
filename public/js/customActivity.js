@@ -46,6 +46,7 @@ define([
 
     function handelSchema(schema) {
         console.log('*** Schema ***', JSON.stringify(schema))
+        return schema;
     }
 
 
@@ -65,6 +66,9 @@ define([
         if (data) {
             payload = data;
         }
+        var newData = handelSchema();
+
+        console.log("$$$$$$$$$$$$ New Data coming $$$$$$$",JSON.stringify(newData));
         
         var hasInArguments = Boolean(
             payload['arguments'] &&
