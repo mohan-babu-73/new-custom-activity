@@ -45,8 +45,10 @@ define([
     }
 
     function handelSchema(schema) {
+        console.log("####Schema without strignify#####",schema);
         console.log('*** Schema ***', JSON.stringify(schema))
-        return schema;
+        $("#schema_info").text(JSON.stringify(schema));
+        // $("#attribute_name").text(schema.schema.)
     }
 
 
@@ -66,9 +68,9 @@ define([
         if (data) {
             payload = data;
         }
-        var newData = handelSchema();
+        // var newData = handelSchema();
 
-        console.log("$$$$$$$$$$$$ New Data coming $$$$$$$",JSON.stringify(newData));
+        // console.log("$$$$$$$$$$$$ New Data coming $$$$$$$",JSON.stringify(newData));
         
         var hasInArguments = Boolean(
             payload['arguments'] &&
