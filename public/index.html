@@ -83,7 +83,7 @@
                 <div class="col-sm-2">
                   <div class="flex-column nav nav-pills" role="tablist">
                     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <button class="nav-link active dynamicgroup" id="v-pills-dynamic1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic1" type="button" role="tab" aria-controls="v-pills-dynamic1" aria-selected="true">Dynamic Group1</button>
+                        <button class="nav-link active dynamicgroup" id="v-pills-dynamic1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic1" data-length="1"  type="button" role="tab" aria-controls="v-pills-dynamic1" aria-selected="true">Dynamic Group1</button>
                         <!-- <button class="nav-link dynamicgroup" id="v-pills-dynamic2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic2" type="button" role="tab" aria-controls="v-pills-dynamic2" aria-selected="false">Dynamic Group2</button>
                         -->
                       </div>
@@ -246,11 +246,14 @@
        // $('.select').timezones();
       });
       $(document).on('click', '.dynamicgroup', function(event) {
-        alert("Working here");
+        var getlength=$(this).attr('data-length');
         if($(this).attr('data-tab') != undefined){
           $(".dynamic-tabs1").css('display','none');
           $("#"+$(this).attr('data-tab')).css('display','block');
-          //$('.select').timezones();
+          $('.select').timezones();
+          $("#v-pills-dynamic"+getlength+"-tab").addClass('active');
+        $("#v-pills-dynamic"+getlength).addClass('show active');
+        $("#v-pills-dynamic"+getlength).css('display','block');
         }
       });
       $(document).on('click', '#addGroup', function(event) {
@@ -259,7 +262,7 @@
 
         var grouplength = $(".dynamicgroup").length+1;
        
-        var addGroup = ' <button class="nav-link dynamicgroup" id="v-pills-dynamic'+grouplength+'-tab" data-tab="v-pills-dynamic'+grouplength+'" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic'+grouplength+'" type="button" role="tab" aria-controls="v-pills-dynamic'+grouplength+'" aria-selected="false">Dynamic Group'+grouplength+'</button>';
+        var addGroup = ' <button class="nav-link dynamicgroup" id="v-pills-dynamic'+grouplength+'-tab" data-tab="v-pills-dynamic'+grouplength+'" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic'+grouplength+'" type="button" role="tab" aria-controls="v-pills-dynamic'+grouplength+'" data-length="'+grouplength+'" aria-selected="false">Dynamic Group'+grouplength+'</button>';
 
         var addnewTab='       <div role="tabpanel" id="v-pills-dynamic'+grouplength+'" aria-labelledby="v-pills-dynamic'+grouplength+'-tab" class="fade tab-pane dynamic-tabs1"> <form class="">'+
                        ' <div class="container">'+
@@ -368,7 +371,7 @@
                               ' </div>'+
                          ' <div class="row">'+
                           '<div class="col-lg-4 col-md col">'+
-                              '<button  data-id="v-pills-dynamic'+grouplength+'" class="removeGroup btn btn-danger btn-sm" style="text-decoration: none; margin-top: 100px;">Remove group</button>'+
+                              '<button  data-id="v-pills-dynamic'+grouplength+'" data-length="'+grouplength+'"  class="removeGroup btn btn-danger btn-sm" style="text-decoration: none; margin-top: 100px;">Remove group</button>'+
                             '</div>'+
                             '<div class="col-lg-4 col-md col">'+
                               '<button id="close" class="btn btn-warning btn-sm" style="text-decoration: none; margin-top: 100px;">Close</button>'+
@@ -398,25 +401,17 @@
         $(document).on('click', '.removeGroup', function(event) {
             
             var removeId =$(this).attr('data-id');
+            var lengthid = $(this).attr('data-length')-1;
             $("#"+removeId).remove();
             $("#"+removeId+'-tab').remove();
+            $(".dynamic-tabs").removeClass('active');
+            $(".dynamicgroup").removeClass('active');
+            $("#v-pills-dynamic"+lengthid+"-tab").addClass('active');
+            $("#v-pills-dynamic"+lengthid).addClass('show active');
+            $("#v-pills-dynamic"+lengthid).css('display','block');
             
         });
-
-//       var oldschema='{"schema":[{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.ID","name":"ID","type":"Text","length":50,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.firstname","name":"firstname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.lastname","name":"lastname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.position","name":"position","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.title","name":"title","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.business","name":"business","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.employee","name":"employee","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null}]}';
-// var newSchema = JSON.parse(oldschema);
-
-// var getattributes = [];
-//         for(i=0;i<(newSchema.schema.length);i++){
-//             getattributes.push(newSchema.schema[i].name);
-        
-//         }
-//         $(".attribute-select").html('');
-//         // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
-//         for(i=0;i<getattributes.length;i++){
-//           $(".attribute-select").append('<option value="'+getattributes[i]+'">'+getattributes[i]+'</option>');
-//         }
-       
+ 
        
   </script>
 
