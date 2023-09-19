@@ -48,13 +48,13 @@ define([
         console.log("####Schema without strignify#####",schema);
         console.log('*** Schema ***', JSON.stringify(schema))
         var getattributes = [];
-        for(i=0;i<(schema.schema.length);i++){
+        for(var i=0;i<schema.schema.length;i++){
             getattributes.push(schema.schema[i].name);
         }
         $(".attribute-select").html('');
         // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
-        for(i=0;i<getattributes.length;i++){
-          $(".attribute-select").append('<option value="'+getattributes[i]+'">'+getattributes[i]+'</option>');
+        for(var j=0;j<getattributes.length;j++){
+          $(".attribute-select").append('<option value="'+getattributes[j]+'">'+getattributes[j]+'</option>');
         }
     }
 
