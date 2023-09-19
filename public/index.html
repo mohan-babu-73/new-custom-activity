@@ -28,44 +28,499 @@
             require(config, dependencies);
         })();
     </script>
+       <style type="text/css">
+        body {
+          padding: 20px;
+          margin: 0;
+        }
+        .step {
+          display: none;
+        }
+        #step1 {
+          display: block;
+        }
+        .form-control{
+            font-size: 12px !important;
+        }
+      </style>
 </head>
 
- <body>
-    <p id="schema_info"></p>
-    <p p="attribute_name"></p>
-    <div id="step1" class="step">
-        <div class="slds-grid">
 
-            <main class="slds-col slds-size--1-of-3 slds-p-horizontal--small">
-                <div class="slds-form slds-form_stacked">
-                    <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="postcard-url">
-                            Image URL</label>
-                            <div class="slds-form-element__control">
-                                <input type="text" id="postcard-url" class="slds-input" />
-                            </div>
-                    </div> <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="postcard-text">
-                            Postcard Text </label>
-                            <div class="slds-form-element__control">
-                             <textarea id="postcard-text" class="slds-textarea" rows="3"></textarea>
-                            </div>
-                    </div>
-                    <div class="slds-form-element">
-                        <button id="btn-preview" class="slds-button slds-button_brand">Preview Image</button>
-                    </div>
-                </div>
-            </main>
-            <aside class="slds-col slds-size--2-of-3 slds-border_left slds-p-horizontal--small">
-                <div class="postcard-preview">
-                    <div class="postcard-preview-content" style="height:80vh;background-size: cover; background-repeat:no-repeat"> 
-                        <p id="postcard-preview-text">Postcard text</p> 
-                    </div>
-                </div> 
-            </aside>
+<body>
+    <!-- <h1>THIS IS THE APP UI PORTION</h1>
+    <div id="step1" class="step">
+      Select your SMS message:
+      <select id="select1">
+        <option value="">Select an option</option>
+        <option value="someMessage">Some SMS</option>
+        <option value="anotherMessage">Another SMS</option>
+        <option value="thirdMessage">Third SMS</option>
+        <option value="unknownMessage">Unknown SMS</option>
+      </select>
+
+      <button id="toggleLastStep">Toggle Last Step</button>
     </div>
- </div>
-    
-</body> 
+    <div id="step2" class="step">
+      Here's a second page with some info on it.
+    </div>
+    <div id="step3" class="step">
+      You chose the message:
+      <div id="message"></div>
+    </div>
+    <div id="step4" class="step">
+      Hey, here's a fourth step, just for you. Toggle this on or off from step
+      1.
+    </div> -->
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-sm-9" >
+            <div class="d-flex align-items-start">
+                
+          <div class="col-12" id="customDiv">
+            <div class="divOne">
+              <h3 class="mb-5">Dynamic Wait Activity</h3>
+              <div class="row">
+                <div class="col-sm-2">
+                  <div class="flex-column nav nav-pills" role="tablist">
+                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active dynamicgroup" id="v-pills-dynamic1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic1" type="button" role="tab" aria-controls="v-pills-dynamic1" aria-selected="true">Dynamic Group1</button>
+                        <!-- <button class="nav-link dynamicgroup" id="v-pills-dynamic2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic2" type="button" role="tab" aria-controls="v-pills-dynamic2" aria-selected="false">Dynamic Group2</button>
+                        -->
+                      </div>
+                      <button class="nav-link "  type="button" id="addGroup" ><i class="fa fa-plus fa-3x text-success"></i></button>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div role="tabpanel" id="v-pills-dynamic1"  aria-labelledby="v-pills-dynamic1-tab" class="tab-pane fade show active dynamic-tabs">
+                      <form class="">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 col-md col">
+                              <div class="justify-content-md-left row">
+                                <div class="col-lg-7 col">
+                                  <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>
+                                </div>
+                                <div class="col-lg-5 col"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <select aria-label="Dynamic Attribute" class="form-select attribute-select " style="font-size: 12px;">
+                                    <option>Dynamic Attribute</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select aria-label="Dynamic Attribute" class="form-select " style="font-size: 12px;">
+                                      <option>Select Relationship</option>
+                                      <option value="2">equals</option>
+                                      <option value="3">greater </option>
+                                      <option value="4">greater than</option>
+                                      <option value="3">less </option>
+                                      <option value="4">less than</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                
+                                    <div class="form-input">
+                                       
+                                        <input type="text" class="form-control" id="usr">
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12 col-md col mt-3">
+                                
+                              <div class="justify-content-md-left justify-content-lg-left row">
+                                <div class="col-lg-7 col">
+                                  <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>
+                                </div>
+                                <div class="col-lg-5 col"></div>
+                              </div>
+                              <div class="row ">
+                        
+                                <div class="col"> <select aria-label="Dynamic Attribute" class="form-select w-75" style="font-size: 12px;">
+                                    <option>Dynamic Attribute</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                 
+                          <div class="mt-2 row">
+                            <div class="col-lg-2 col-md col">
+                              <label class="form-label" style="font-size: 12px;">Duration</label>
+                              <select aria-label="1" class="form-select" style="font-size: 12px;">
+                                <option>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <label class="form-label">&nbsp;</label>
+                              <select aria-label="Days" class="form-select" style="font-size: 12px;">
+                                <option>Days</option>
+                                <option value="2">Days2</option>
+                                <option value="3">Days3</option>
+                                <option value="4">Days4</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <label class="form-label">&nbsp;</label>
+                              <select aria-label="After" class="form-select" style="font-size: 12px;">
+                                <option>Days</option>
+                                <option value="2">Days2</option>
+                                <option value="3">Days3</option>
+                                <option value="4">Days4</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-12 col-md col mt-3">
+                                
+                            <div class="row ">
+                               <label class="form-label text-center" style="font-size: 12px;">Timezone</label>
+                              <div class="col"> <select name="timezone" id="timezone" aria-label="Dynamic Attribute" class="form-select select" style="font-size: 12px;">
+                                  <option>Select Timezone</option>
+                                </select>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="mt-2 row">
+                            <div class="col-lg-10 col-md col">
+                              <div class="checkbox text-center" style="font-size: 12px;">
+                                <input type="checkbox" value=""> Extend wait duration untill specific time
+                              </div>
+                     
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-2 col-md col"></div>
+                            <div class="col-lg-5 col-md col">
+                              <button id="close" class="btn btn-danger btn-sm" style="text-decoration: none; margin-top: 100px;">Close</button>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <button id="done" class="btn btn-primary btn-sm" style="text-decoration: none; margin-top: 100px;">Done</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+       
+
+                      <form class="">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 col-md col">
+                              <div class="justify-content-md-left row">
+                                <div class="col-lg-7 col">
+                                  <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>
+                                </div>
+                                <div class="col-lg-5 col"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <select aria-label="Dynamic Attribute" class="form-select " style="font-size: 12px;">
+                                    <option>Dynamic Attribute</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select aria-label="Dynamic Attribute" class="form-select " style="font-size: 12px;">
+                                      <option>Select Relationship</option>
+                                      <option value="2">equals</option>
+                                      <option value="3">greater </option>
+                                      <option value="4">greater than</option>
+                                      <option value="3">less </option>
+                                      <option value="4">less than</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                
+                                    <div class="form-input">
+                                       
+                                        <input type="text" class="form-control" id="usr">
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12 col-md col mt-3">
+                                
+                              <div class="justify-content-md-left justify-content-lg-left row">
+                                <div class="col-lg-7 col">
+                                  <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>
+                                </div>
+                                <div class="col-lg-5 col"></div>
+                              </div>
+                              <div class="row ">
+                        
+                                <div class="col"> <select aria-label="Dynamic Attribute" class="form-select w-75" style="font-size: 12px;">
+                                    <option>Dynamic Attribute</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                  </select>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-2 row">
+                            <div class="col-lg-2 col-md col">
+                              <label class="form-label" style="font-size: 12px;">Duration</label>
+                              <select aria-label="1" class="form-select" style="font-size: 12px;">
+                                <option>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <label class="form-label">&nbsp;</label>
+                              <select aria-label="Days" class="form-select" style="font-size: 12px;">
+                                <option>Days</option>
+                                <option value="2">Days2</option>
+                                <option value="3">Days3</option>
+                                <option value="4">Days4</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <label class="form-label">&nbsp;</label>
+                              <select aria-label="After" class="form-select" style="font-size: 12px;">
+                                <option>Days</option>
+                                <option value="2">Days2</option>
+                                <option value="3">Days3</option>
+                                <option value="4">Days4</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-2 col-md col"></div>
+                            <div class="col-lg-5 col-md col">
+                              <button id="close" class="btn btn-danger btn-sm" style="text-decoration: none; margin-top: 100px;">Close</button>
+                            </div>
+                            <div class="col-lg-5 col-md col">
+                              <button id="done" class="btn btn-primary btn-sm" style="text-decoration: none; margin-top: 100px;">Done</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                       
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            
+            <button id="dynamicSetting" class="btn btn-danger btn-sm"><i class="fa fa-cog text-white   fa-fw"></i></button>
+           
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- <script src="firstapp/public/js/timezones.full.js"></script>
+  <script src="firstapp/public/js/timezones.js"></script> -->
+  <script>
+   // $('.select').timezones();
+  </script>
+  <script>
+      $(document).ready(function(){
+          $("#dynamicSetting,#close").on("click",function(){
+              $("#customDiv").toggle();
+          });
+
+      });
+      $(document).on('click','.select',function(){
+       // $('.select').timezones();
+      });
+      $(document).on('click', '.dynamicgroup', function(event) {
+        if($(this).attr('data-tab') != undefined){
+          $(".dynamic-tabs1").css('display','none');
+          $("#"+$(this).attr('data-tab')).css('display','block');
+          //$('.select').timezones();
+        }
+      });
+      $(document).on('click', '#addGroup', function(event) {
+
+      
+
+        var grouplength = $(".dynamicgroup").length+1;
+       
+        var addGroup = ' <button class="nav-link dynamicgroup" id="v-pills-dynamic'+grouplength+'-tab" data-tab="v-pills-dynamic'+grouplength+'" data-bs-toggle="pill" data-bs-target="#v-pills-dynamic'+grouplength+'" type="button" role="tab" aria-controls="v-pills-dynamic'+grouplength+'" aria-selected="false">Dynamic Group'+grouplength+'</button>';
+
+        var addnewTab='       <div role="tabpanel" id="v-pills-dynamic'+grouplength+'" aria-labelledby="v-pills-dynamic'+grouplength+'-tab" class="fade tab-pane dynamic-tabs1"> <form class="">'+
+                       ' <div class="container">'+
+                        '  <div class="row">'+
+                            '<div class="col-lg-12 col-md col">'+
+                            '  <div class="justify-content-md-left row">'+
+                              '  <div class="col-lg-7 col">'+
+                               '   <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>'+
+                              '  </div>'+
+                              '  <div class="col-lg-5 col"></div>'+
+                            '  </div>'+
+                             ' <div class="row">'+
+                               ' <div class="col-md-4">'+
+                                 ' <select aria-label="Dynamic Attribute" class="form-select " style="font-size: 12px;">'+
+                                 '   <option>Dynamic Attribute</option>'+
+                                 '   <option value="2">2</option>'+
+                                 '   <option value="3">3</option>'+
+                                 '   <option value="4">4</option>'+
+                                '  </select>'+
+                               ' </div>'+
+                              '  <div class="col-md-4">'+
+                                   ' <select aria-label="Dynamic Attribute" class="form-select " style="font-size: 12px;">'+
+                                    '  <option>Select Relationship</option>'+
+                                    '  <option value="2">equals</option>'+
+                                    '  <option value="3">greater </option>'+
+                                    '  <option value="4">greater than</option>'+
+                                    '  <option value="3">less </option>'+
+                                    '  <option value="4">less than</option>'+
+                                  '  </select>'+
+                                '  </div>'+
+                              '    <div class="col-md-4">'+
+                                
+                                  '  <div class="form-input">'+
+                                       
+                                     '   <input type="text" class="form-control" id="usr">'+
+                                    '  </div>'+
+                                 ' </div>'+
+                             ' </div>'+
+                           ' </div>'+
+                          '  <div class="col-lg-12 col-md col mt-3">'+
+                             ' <div class="justify-content-md-left justify-content-lg-left row">'+
+                               ' <div class="col-lg-7 col">'+
+                                '  <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>'+
+                               ' </div>'+
+                              '  <div class="col-lg-5 col"></div>'+
+                             ' </div>'+
+                             ' <div class="row ">'+
+                               ' <div class="col"> <select aria-label="Dynamic Attribute" class="form-select w-75" style="font-size: 12px;">'+
+                                '    <option>Dynamic Attribute</option>'+
+                                '   <option value="2">2</option>'+
+                                '    <option value="3">3</option>'+
+                                '    <option value="4">4</option>'+
+                               '   </select>'+
+                               ' </div>'+
+                              '</div>'+
+                            '</div>'+
+                          '</div>'+
+
+                          '<div class="mt-2 row">'+
+                            '<div class="col-lg-2 col-md col">'+
+                            '  <label class="form-label" style="font-size: 12px;">Duration</label>'+
+                            '  <select aria-label="1" class="form-select" style="font-size: 12px;">'+
+                             '   <option>1</option>'+
+                              '  <option value="2">2</option>'+
+                              '  <option value="3">3</option>'+
+                              '  <option value="4">4</option>'+
+                             ' </select>'+
+                           ' </div>'+
+                            '<div class="col-lg-5 col-md col">'+
+                            '  <label class="form-label">&nbsp;</label>'+
+                            '  <select aria-label="Days" class="form-select" style="font-size: 12px;">'+
+                              '  <option>Days</option>'+
+                               ' <option value="2">Days2</option>'+
+                              '  <option value="3">Days3</option>'+
+                              '  <option value="4">Days4</option>'+
+                           '   </select>'+
+                           ' </div>'+
+                           ' <div class="col-lg-5 col-md col">'+
+                            '  <label class="form-label">&nbsp;</label>'+
+                            '  <select aria-label="After" class="form-select" style="font-size: 12px;">'+
+                             '   <option>Days</option>'+
+                              '  <option value="2">Days2</option>'+
+                            '    <option value="3">Days3</option>'+
+                             '   <option value="4">Days4</option>'+
+                           '   </select>'+
+                         '   </div>'+
+                         ' </div>'+
+                         '<div class="col-lg-12 col-md col mt-3">'+
+                                
+                                ' <div class="row ">'+
+                                  '  <label class="form-label text-center" style="font-size: 12px;">Timezone</label>'+
+                                   '<div class="col"> <select name="timezone" id="timezone" aria-label="Dynamic Attribute" class="form-select select" '+'style="font-size: 12px;">'+
+                                     '  <option data-offset="+5:30" value="Asia/Calcutta">(GMT +5:30) Asia/Calcutta</option>'+
+                                    ' </select>'+
+                                  ' </div>'+
+                                   
+                                ' </div>'+
+                              ' </div>'+
+                               '<div class="mt-2 row">'+
+                                ' <div class="col-lg-10 col-md col">'+
+                                  ' <div class="checkbox text-center" style="font-size: 12px;">'+
+                                   '  <input type="checkbox" value=""> Extend wait duration untill specific time'+
+                                   '</div>'+
+                          
+                                ' </div>'+
+                              ' </div>'+
+                         ' <div class="row">'+
+                          '<div class="col-lg-4 col-md col">'+
+                              '<button  data-id="v-pills-dynamic'+grouplength+'" class="removeGroup btn btn-danger btn-sm" style="text-decoration: none; margin-top: 100px;">Remove group</button>'+
+                            '</div>'+
+                            '<div class="col-lg-4 col-md col">'+
+                              '<button id="close" class="btn btn-warning btn-sm" style="text-decoration: none; margin-top: 100px;">Close</button>'+
+                            '</div>'+
+                           
+                            '<div class="col-lg-4 col-md col">'+
+                              '<button id="done" class="btn btn-primary btn-sm" style="text-decoration: none; margin-top: 100px;">Done</button>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                      '</form></div>';
+
+       // $('.select').timezones();
+        $(".dynamic-tabs1").css('display','none');
+        $("#v-pills-dynamic1-tab").parent().append(addGroup);
+        $("#v-pills-tabContent").parent().append(addnewTab);
+        $('#v-pills-dynamic'+grouplength).addClass('active');
+        $(".dynamic-tabs").removeClass('active');
+        $(".dynamicgroup").removeClass('active');
+        $("#v-pills-dynamic"+grouplength+"-tab").addClass('active');
+        $("#v-pills-dynamic"+grouplength).addClass('show active');
+        $("#v-pills-dynamic"+grouplength).css('display','block');
+        
+        
+      });
+     
+        $(document).on('click', '.removeGroup', function(event) {
+            
+            var removeId =$(this).attr('data-id');
+            $("#"+removeId).remove();
+            $("#"+removeId+'-tab').remove();
+            
+        });
+
+      var oldschema='{"schema":[{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.ID","name":"ID","type":"Text","length":50,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.firstname","name":"firstname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.lastname","name":"lastname","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.position","name":"position","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.title","name":"title","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.business","name":"business","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null},{"key":"Event.DEAudience-7f15a73f-b415-d050-ac02-b748ad6f6681.employee","name":"employee","type":"Text","length":100,"default":null,"isNullable":true,"isPrimaryKey":null}]}';
+var newSchema = JSON.parse(oldschema);
+
+var getattributes = [];
+        for(i=0;i<(newSchema.schema.length);i++){
+            getattributes.push(newSchema.schema[i].name);
+           // console.log(newSchema.schema[i]);
+        }
+        $(".attribute-select").html('');
+        // $(".attribute-select").append('<option value="">Dynamic Attribute</option>');
+        for(i=0;i<getattributes.length;i++){
+         
+          $(".attribute-select").append('<option value="'+getattributes[i]+'">'+getattributes[i]+'</option>');
+        }
+        console.log("attr",getattributes);
+       
+  </script>
 
 </html>
