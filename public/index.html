@@ -252,10 +252,12 @@
           $(".dynamic-tabs1").css('display','none');
           $("#"+$(this).attr('data-tab')).css('display','block');
         //   $('.select').timezones();
-          $("#v-pills-dynamic"+getlength+"-tab").addClass('active');
+        }
+        $(".dynamic-tabs").removeClass('active');
+        $(".dynamicgroup").removeClass('active');
+        $("#v-pills-dynamic"+getlength+"-tab").addClass('active');
         $("#v-pills-dynamic"+getlength).addClass('show active');
         $("#v-pills-dynamic"+getlength).css('display','block');
-        }
       });
       $(document).on('click', '#addGroup', function(event) {
 
@@ -271,7 +273,7 @@
                             '<div class="col-lg-12 col-md col">'+
                             '  <div class="justify-content-md-left row">'+
                               '  <div class="col-lg-7 col">'+
-                               '   <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute</h5>'+
+                               '   <h5 style="font-size: 15px; text-align: left;">Dynamic Attribute'+grouplength+'</h5>'+
                               '  </div>'+
                               '  <div class="col-lg-5 col"></div>'+
                             '  </div>'+
