@@ -317,10 +317,10 @@
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="js/timezones.full.js"></script>
-  <script src="js/timezones.js"></script>
+  <!-- <script src="js/timezones.full.js"></script>
+  <script src="js/timezones.js"></script> -->
   <script>
-    $('.select').timezones();
+   // $('.select').timezones();
   </script>
   <script>
       $(document).ready(function(){
@@ -330,13 +330,13 @@
 
       });
       $(document).on('click','.select',function(){
-        $('.select').timezones();
+      //  $('.select').timezones();
       });
       $(document).on('click', '.dynamicgroup', function(event) {
         if($(this).attr('data-tab') != undefined){
           $(".dynamic-tabs1").css('display','none');
           $("#"+$(this).attr('data-tab')).css('display','block');
-          $('.select').timezones();
+       //   $('.select').timezones();
         }
       });
       $(document).on('click', '#addGroup', function(event) {
@@ -490,7 +490,7 @@
         //                     '</div>'+
                            
         //                   '</div></div>';
-        $('.select').timezones();
+       // $('.select').timezones();
         $(".dynamic-tabs1").css('display','none');
         $("#v-pills-dynamic1-tab").parent().append(addGroup);
         $("#v-pills-tabContent").parent().append(addnewTab);
